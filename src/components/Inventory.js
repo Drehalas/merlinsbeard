@@ -1,29 +1,25 @@
 // components/Inventory.js
 
 import Image from 'next/image';
-import styles from '../styles/Inventory.module.css';
+import styles from '@/styles/Inventory.module.css';
 
-export default function Inventory() {
-    const items = [
-        { id: 1, src: "/assets/images/crystal1.svg", alt: "Crystal 1", quantity: "1000/1000" },
-        { id: 2, src: "/assets/images/crystal2.svg", alt: "Crystal 2", quantity: "1000/1000" },
-        { id: 3, src: "/assets/images/crystal3.svg", alt: "Crystal 3", quantity: "1000/1000" },
-        { id: 4, src: "/assets/images/crystal4.svg", alt: "Crystal 4", quantity: "1000/1000" },
-    ];
-
+const Inventory = () => {
     return (
         <div className={styles.inventoryContainer}>
-            {items.map(item => (
-                <div key={item.id} className={styles.inventoryItem}>
+            {['Crystal 1.svg', 'Crystal 2.svg', 'Crystal 3.svg', 'Crystal 4.svg'].map((item, index) => (
+                <div className={styles.inventoryItem} key={index}>
                     <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={50}
-                        height={50}
+                        src={`/assets/Images/${item}`}
+                        alt={`Inventory Item ${index + 1}`}
+                        width={60}
+                        height={60}
+                        layout="responsive"
                     />
-                    <span className={styles.quantity}>{item.quantity}</span>
+                    <p className={styles.itemText}>1000/1000</p>
                 </div>
             ))}
         </div>
     );
-}
+};
+
+export default Inventory;

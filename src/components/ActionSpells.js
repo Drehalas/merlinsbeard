@@ -1,28 +1,44 @@
 // components/ActionSpells.js
 
 import Image from 'next/image';
-import styles from '../styles/ActionSpells.module.css';
+import styles from '@/styles/ActionSpells.module.css';
+import PropTypes from 'prop-types';
 
-export default function ActionSpells() {
+const ActionSpells = () => {
     const spells = [
-        { id: 1, src: "/assets/images/Spell-fire.svg", alt: "Spell 1", level: 2 },
-        { id: 2, src: "/assets/images/Spell-ice.svg", alt: "Spell 2", level: 2 },
-        { id: 3, src: "/assets/images/Spell-wind.svg", alt: "Spell 3", level: 2 },
+        { id: 1, src: "/assets/images/Spell-fire.svg", alt: "Fire Spell", level: 2 },
+        { id: 2, src: "/assets/images/Spell-ice.svg", alt: "Ice Spell", level: 2 },
+        { id: 3, src: "/assets/images/Spell-wind.svg", alt: "Wind Spell", level: 2 },
     ];
 
     return (
         <div className={styles.spellsContainer}>
-            {spells.map(spell => (
+            {spells.map((spell) => (
                 <div key={spell.id} className={styles.spell}>
                     <Image
                         src={spell.src}
                         alt={spell.alt}
                         width={60}
                         height={60}
+                        onError={(e) => e.target.src = '/assets/images/placeholder.svg'} // Optional: Placeholder on error
                     />
                     <span className={styles.level}>Lv{spell.level}</span>
                 </div>
             ))}
         </div>
     );
-}
+};
+
+export default ActionSpells;
+
+// Optional: PropTypes
+ActionSpells.propTypes = {
+    spells: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            src: PropTypes.string.isRequired,
+            alt: PropTypes.string.isRequired,
+            level: PropTypes.number.isRequired,
+        })
+    ),
+};

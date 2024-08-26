@@ -1,7 +1,9 @@
 // pages/index.js
 
-import MainScreenConcept1 from '../src/components/MainScreenConcept1';
+// Updated path to match the renamed component
+
+import MainScreen from "@/components/MainScreen";
 
 export default function Home() {
-    return <MainScreenConcept1 />;
+    return <MainScreen />;
 }

@@ -1,0 +1,51 @@
+/* styles/PointBar.module.css */
+
+.pointBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 300px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.label {
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.barBackground {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.barFill {
+    background-color: #4caf50; /* Adjust color based on the bar type */
+    height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.barOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it does not block mouse events */
+}
+
+.pointsText {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}

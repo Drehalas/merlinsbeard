@@ -1,0 +1,34 @@
+/* styles/AutoAttack.module.css */
+
+.autoAttackContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 200px;
+}
+
+.autoAttackSettings {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.autoAttackItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.autoAttackIcon {
+    margin-bottom: 5px;
+}
+
+.autoAttackLabel {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}

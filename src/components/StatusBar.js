@@ -1,15 +1,22 @@
 // components/StatusBar.js
 
-import styles from '../styles/StatusBar.module.css';
+import Image from 'next/image';
+import styles from '@/styles/StatusBar.module.css';
 
-export default function StatusBar({ current, max }) {
-    const percentage = (current / max) * 100;
-
+const StatusBar = () => {
     return (
         <div className={styles.statusBarContainer}>
-            <div className={styles.statusBar} style={{ width: `${percentage}%` }}>
-                {current}/{max}
-            </div>
+            <Image
+                src="/assets/Images/ManaBar.svg"
+                alt="Mana Bar"
+                width={300}
+                height={30}
+                layout="responsive"
+                className={styles.statusBar}
+            />
+            <p className={styles.statusText}>300/500</p>
         </div>
     );
-}
+};
+
+export default StatusBar;

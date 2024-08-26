@@ -1,14 +1,17 @@
 /* styles/CharacterDisplay.module.css */
 
 .characterContainer {
-  position: absolute; /* Position absolute to allow layering */
-  top: 30%; /* Adjust top position as needed */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the character */
-  z-index: 2; /* Higher z-index to bring the character above other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.orb {
+  margin-right: -20px; /* Adjust for overlapping effect */
 }
 
 .character {
-  position: relative; /* Relative positioning for any internal adjustments */
-  z-index: 2; /* Ensure the character stays on the top layer */
+  position: relative;
 }
