@@ -1,0 +1,21 @@
+/* styles/StatusBar.module.css */
+
+.statusBarContainer {
+  width: 80%;
+  max-width: 500px;
+  background-color: #ddd;
+  border-radius: 20px;
+  margin: 20px auto; /* Center with margin */
+  text-align: center;
+}
+
+.statusBar {
+  height: 20px;
+  background-color: #4caf50;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 60%; /* Dynamic width based on container */
+  margin: 0 auto; /* Center within the container */
+}

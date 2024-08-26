@@ -1,0 +1,16 @@
+/* styles/Header.module.css */
+
+.header {
+  width: 100%;
+  height: 100px; /* Set a fixed height for the header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Add padding for spacing */
+  background-image: url('/assets/images/Header.svg');
+  background-size: cover; /* Adjust size to cover the header */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background repetition */
+  box-sizing: border-box;
+}
+

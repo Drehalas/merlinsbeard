@@ -1,0 +1,19 @@
+/* styles/ActionSpells.module.css */
+
+.spellsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between each spell */
+  margin: 20px 0;
+}
+
+.spell {
+  text-align: center;
+}
+
+.level {
+  display: block;
+  margin-top: 5px;
+  font-size: 1rem;
+  color: white;
+}

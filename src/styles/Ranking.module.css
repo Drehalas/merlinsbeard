@@ -1,0 +1,32 @@
+
+/* Styles for the ranking page */
+.rankingContainer {
+  padding: 20px;
+  background-color: #34495e;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.rankingList {
+  list-style-type: none;
+  padding: 0;
+}
+.rankingItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2c3e50;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: #ecf0f1;
+}
+.rank {
+  font-weight: bold;
+}
+.playerName {
+  flex-grow: 2;
+  text-align: left;
+  margin-left: 20px;
+}
+.points {
+  color: #f1c40f;
+}
