@@ -1,15 +1,33 @@
 /* styles/Home.module.css */
 
+/* Container for the entire main screen */
+.mainScreenContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevent overflow */
+  background-color: black; /* Set the background color */
+}
+
 .mainScreen {
-  position: relative;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto auto auto auto; /* Define row sizes */
+  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-areas:
+    "header"
+    "orb"
+    "character"
+    "status"
+    "spells"
+    "crystals" /* New crystals area */
+    "buttons"
+    "inventory"
+    "point"
+    "footer";
   width: 100%;
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden; /* Prevent scroll */
-  background-color: black; /* Fallback background color */
+  height: 100%;
+  position: relative;
+  background-color: black;
+  padding: 0;
 }
 
 .background {
@@ -19,31 +37,51 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* Background image behind all content */
+  z-index: -1;
 }
 
 .header {
+  grid-area: header;
+  justify-self: center;
   width: 100%;
-  max-width: 600px; /* Limit the max width */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 10px;
+  max-width: 600px; /* Ensure responsiveness */
+  margin: 0;
+  padding: 0;
 }
 
-.characterDisplay {
-  width: 30%;
-  max-width: 200px; /* Limit character size */
-  height: auto; /* Maintain aspect ratio */
-  margin-top: 20px; /* Add margin to space elements */
+.orbContainer {
+  grid-area: orb;
+  justify-self: center;
+  margin-top: 10px;
 }
 
-.statusBar {
+.characterContainer {
+  grid-area: character;
+  justify-self: center;
+  margin-top: 10px;
+}
+
+.statusBarContainer {
+  grid-area: status;
+  justify-self: center;
   width: 80%;
-  max-width: 500px; /* Limit the max width */
-  height: auto;
-  margin-top: 20px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.manaText {
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  bottom: 0;
 }
 
 .actionSpells {
+  grid-area: spells;
+  justify-self: center;
   width: 90%;
   max-width: 600px;
   display: flex;
@@ -51,14 +89,17 @@
   margin: 10px 0;
 }
 
-.autoAttack {
-  width: 80%;
-  max-width: 300px;
-  height: auto;
+.buttonsContainer {
+  grid-area: buttons;
+  justify-self: center;
+  display: flex;
+  gap: 10px;
   margin: 10px 0;
 }
 
 .inventoryItems {
+  grid-area: inventory;
+  justify-self: center;
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -67,16 +108,26 @@
 }
 
 .pointBar {
+  grid-area: point;
+  justify-self: center;
   width: 80%;
   max-width: 400px;
   margin: 10px 0;
 }
 
+.crystalsContainer {
+  grid-area: crystals;
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
 .footer {
+  grid-area: footer;
+  align-self: end;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 0;
   display: flex;

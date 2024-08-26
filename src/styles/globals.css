@@ -1,25 +1,26 @@
 
-/* Global styles */
+/* styles/globals.css */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #1a1a1a;
-  color: #fff;
+  box-sizing: border-box; /* Ensure padding and borders are included in total width/height */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+
+* {
+  box-sizing: border-box; /* Ensure all elements include padding and borders in their total width/height */
 }
-.button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.button:hover {
-  background-color: #45a049;
+
+.mainScreen {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden; /* Prevent scroll */
+  background-color: black; /* Fallback background color */
+  padding: 0; /* Remove any padding */
 }
