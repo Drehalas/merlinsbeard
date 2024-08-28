@@ -5,7 +5,15 @@ import Link from 'next/link';
 import styles from '@/styles/Footer.module.css';
 import PropTypes from 'prop-types';
 
-const Footer = ({ menuItems }) => {
+// Destructure props and assign default values directly in the function parameters
+const Footer = ({ menuItems = [
+    { id: 1, icon: "/assets/images/icon-attack.svg", label: "Attack", href: "/attack" },
+    { id: 2, icon: "/assets/images/icon-inventory.svg", label: "Inventory", href: "/inventory" },
+    { id: 3, icon: "/assets/images/icon-map.svg", label: "Map", href: "/map" },
+    { id: 4, icon: "/assets/images/icon-task.svg", label: "Task", href: "/task" },
+    { id: 5, icon: "/assets/images/icon-ranking.svg", label: "Ranking", href: "/ranking" },
+    { id: 6, icon: "/assets/images/icon-profile.svg", label: "Profile", href: "/profile" },
+] }) => {
     return (
         <footer className={styles.footer}>
             <nav className={styles.footerNav}>
@@ -24,18 +32,6 @@ const Footer = ({ menuItems }) => {
             </nav>
         </footer>
     );
-};
-
-// Default Props for Menu Items
-Footer.defaultProps = {
-    menuItems: [
-        { id: 1, icon: "/assets/images/icon-attack.svg", label: "Attack", href: "/attack" },
-        { id: 2, icon: "/assets/images/icon-inventory.svg", label: "Inventory", href: "/inventory" },
-        { id: 3, icon: "/assets/images/icon-map.svg", label: "Map", href: "/map" },
-        { id: 4, icon: "/assets/images/icon-task.svg", label: "Task", href: "/task" },
-        { id: 5, icon: "/assets/images/icon-ranking.svg", label: "Ranking", href: "/ranking" },
-        { id: 6, icon: "/assets/images/icon-profile.svg", label: "Profile", href: "/profile" },
-    ],
 };
 
 // PropTypes for Type Checking
