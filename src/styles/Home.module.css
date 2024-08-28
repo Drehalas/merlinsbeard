@@ -1,136 +1,190 @@
 /* styles/Home.module.css */
 
-/* Container for the entire main screen */
 .mainScreenContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Prevent overflow */
+  overflow: hidden;
+  position: relative; /* Position relative to maintain proper layout context */
 }
 
 .mainScreen {
   display: grid;
-  grid-template-rows: auto auto auto 1fr auto auto auto auto; /* Define row sizes */
-  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(10, auto); /* Adjust rows to fit content */
   grid-template-areas:
-    "header"
-    "orb"
-    "character"
-    "status"
-    "spells"
-    "crystals" /* New crystals area */
-    "buttons"
-    "inventory"
-    "point"
-    "footer";
+    "header header header"
+    "orb orb orb"
+    ". spells ."
+    ". status ."
+    "crystal1 character crystal2"
+    "crystal3 character crystal4"
+    "buttons buttons buttons"
+    "footer footer footer";
   width: 100%;
   height: 100%;
-  position: relative;
-  padding: 0;
+  gap: 0; /* Remove grid gaps */
+  position: relative; /* Relative to container */
 }
 
+/* Background */
 .background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  z-index: -1; /* Set background behind all elements */
+  background-image: url('/assets/Images/Background.svg'); /* Use the SVG file as background */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  background-position: center; /* Center the background image */
 }
 
-.header {
-  grid-area: header;
-  justify-self: center;
-  width: 100%;
-  max-width: 600px; /* Ensure responsiveness */
-  margin: 0;
-  padding: 0;
-}
-
-.orbContainer {
-  grid-area: orb;
-  justify-self: center;
-  margin-top: 10px;
-}
-
-.characterContainer {
-  grid-area: character;
-  justify-self: center;
-  margin-top: 10px;
-}
-
-.statusBarContainer {
-  grid-area: status;
-  justify-self: center;
-  width: 80%;
-  max-width: 500px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-top: 10px;
-}
-
-.manaText {
-  position: absolute;
-  color: white;
-  font-size: 14px;
-  bottom: 0;
-}
-
-.actionSpells {
-  grid-area: spells;
-  justify-self: center;
-  width: 90%;
-  max-width: 600px;
-  display: flex;
-  justify-content: space-around;
-  margin: 10px 0;
-}
-
-.buttonsContainer {
-  grid-area: buttons;
-  justify-self: center;
-  display: flex;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-.inventoryItems {
-  grid-area: inventory;
-  justify-self: center;
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.pointBar {
-  grid-area: point;
-  justify-self: center;
-  width: 80%;
-  max-width: 400px;
-  margin: 10px 0;
-}
-
-.crystalsContainer {
-  grid-area: crystals;
-  display: flex;
-  justify-content: space-around;
-  width: 80%;
-  max-width: 500px;
-  margin: 10px auto;
-}
-
+/* Footer */
 .footer {
   grid-area: footer;
-  align-self: end;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 0;
+  z-index: 1000; /* Ensure footer stays on top */
+  position: sticky; /* Sticky positioning to keep it at the bottom */
+  bottom: 0;
+}
+
+/* Full-width Header */
+.header {
+  grid-area: header;
+  width: 100%; /* Ensure the header spans full width */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 100%; /* Override any max-width setting */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  z-index: 1; /* Ensure it's above the background */
+  position: relative; /* Relative positioning for orb alignment */
+}
+
+/* AutoStop Button Styling */
+.autoStopButton {
+  position: absolute; /* Position it absolutely */
+  top: 210px; /* Align it vertically with the orb */
+  right: 0; /* Align it to the right edge of the screen */
+  z-index: 1; /* Make sure it is above the background */
+}
+
+/* Orb as a Background Layer */
+.orbBackground {
+  position: absolute;
+  top: 90px; /* Adjust this value to position it correctly under the header */
+  left: 50%;
+  transform: translate(-50%, 0); /* Correctly centers the orb horizontally */
+  width: 200px; /* Use the updated width */
+  height: 200px; /* Use the updated height */
+  z-index: 0; /* Keep it behind all content */
+}
+
+/* Character display section styling */
+.characterContainer {
+  grid-area: character;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+  cursor: pointer; /* Make character clickable */
+  z-index: 1;
+}
+
+/* Status bar section styling */
+.statusBarContainer {
+  grid-area: status;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Action spells section styling */
+.actionSpells {
+  grid-area: spells;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  z-index: 1;
+}
+
+/* Button section styling */
+.leftButton {
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+.rightButton {
+  grid-area: buttons;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Crystals section styling */
+.crystal1 {
+  grid-area: crystal1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.crystal2 {
+  grid-area: crystal2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.crystal3 {
+  grid-area: crystal3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.crystal4 {
+  grid-area: crystal4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* General button styling */
+.button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }

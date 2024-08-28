@@ -8,10 +8,6 @@
   width: 100%;
 }
 
-.orb {
-  margin-right: -20px; /* Adjust for overlapping effect */
-}
-
 .character {
   position: relative;
 }

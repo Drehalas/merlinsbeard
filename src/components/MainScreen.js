@@ -3,19 +3,17 @@
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
 import ActionSpells from '@/components/ActionSpells';
-import AutoAttack from '@/components/AutoAttack';
+import StatusBar from '@/components/StatusBar';
+import CharacterDisplay from '@/components/CharacterDisplay';
+import Inventory from '@/components/Inventory';
 import PointBar from '@/components/PointBar';
 import Footer from '@/components/Footer';
-import CharacterDisplay from '@/components/CharacterDisplay';
-import StatusBar from '@/components/StatusBar';
-import Inventory from '@/components/Inventory';
 
 const MainScreen = () => {
     return (
         <div className={styles.mainScreenContainer}>
-            {/* Main Screen Grid Container */}
             <div className={styles.mainScreen}>
-                {/* Background Image */}
+                {/* Background image */}
                 <div className={styles.background}>
                     <Image
                         src="/assets/Images/Background.svg"
@@ -26,89 +24,110 @@ const MainScreen = () => {
                     />
                 </div>
 
-                {/* Header */}
+                {/* Update Header Here */}
                 <div className={styles.header}>
                     <Image
                         src="/assets/Images/Header.svg"
                         alt="Header"
-                        layout="responsive"
-                        width={500}
-                        height={100}
+                        layout="responsive" /* Ensure image is responsive */
+                        width={1500} /* Increase width to ensure it spans full width */
+                        height={100} /* Maintain the aspect ratio */
                     />
                 </div>
 
-                {/* Orb */}
-                <div className={styles.orbContainer}>
+                {/* Orb as a background layer */}
+                <div className={styles.orbBackground}>
                     <Image
                         src="/assets/Images/orb.svg"
                         alt="Orb"
-                        width={100}
-                        height={100}
+                        width={190}
+                        height={190}
                     />
                 </div>
 
-                {/* Character Display */}
-                <div className={styles.characterContainer}>
+                {/* AutoStop Button */}
+                <div className={styles.autoStopButton}>
                     <Image
-                        src="/assets/Images/character.svg"
-                        alt="Character"
-                        layout="responsive"
-                        width={150}
-                        height={300}
+                        src="/assets/Images/AutoCancelButton.svg"  // Make sure this image exists
+                        alt="Auto Stop"
+                        width={100}  // Adjust size as needed
+                        height={50}  // Adjust size as needed
                     />
                 </div>
 
-                {/* Status Bar */}
-                <div className={styles.statusBarContainer}>
-                    <Image
-                        src="/assets/Images/ManaBar.svg"
-                        alt="Mana Bar"
-                        layout="responsive"
-                        width={300}
-                        height={50}
-                    />
-                    <span className={styles.manaText}>300/500</span>
-                </div>
-
-                {/* Action Spells */}
+                {/* Action spells section */}
                 <div className={styles.actionSpells}>
-                    <ActionSpells />
+                    <ActionSpells/>
                 </div>
 
-                {/* Buff and Auto Attack Buttons */}
-                <div className={styles.buttonsContainer}>
+                {/* Status bar section */}
+                <div className={styles.statusBarContainer}>
+                    <StatusBar/>
+                </div>
+
+                {/* Character display section */}
+                <div className={styles.characterContainer}>
+                    <CharacterDisplay/>
+                </div>
+
+                {/* Crystals */}
+                <div className={styles.crystal1}>
+                    <Image
+                        src="/assets/Images/Crystal1.svg"
+                        alt="Crystal 1"
+                        width={80}
+                        height={80}
+                    />
+                </div>
+                <div className={styles.crystal2}>
+                    <Image
+                        src="/assets/Images/Crystal2.svg"
+                        alt="Crystal 2"
+                        width={80}
+                        height={80}
+                    />
+                </div>
+                <div className={styles.crystal3}>
+                    <Image
+                        src="/assets/Images/Crystal3.svg"
+                        alt="Crystal 3"
+                        width={80}
+                        height={80}
+                    />
+                </div>
+                <div className={styles.crystal4}>
+                    <Image
+                        src="/assets/Images/Crystal4.svg"
+                        alt="Crystal 4"
+                        width={80}
+                        height={80}
+                    />
+                </div>
+
+                {/* Buttons Section */}
+                <div className={styles.leftButton}>
                     <Image
                         src="/assets/Images/BuffButton.svg"
-                        alt="Buff"
-                        width={120}
-                        height={50}
+                        alt="Buff Button"
+                        width={80}
+                        height={80}
+                        className={styles.button}
                     />
+                </div>
+                <div className={styles.rightButton}>
                     <Image
                         src="/assets/Images/AutoButton.svg"
-                        alt="Auto Attack"
+                        alt="Auto Button"
                         width={80}
                         height={80}
-                    />
-                    <Image
-                        src="/assets/Images/AutoCancelButton.svg"
-                        alt="Cancel Auto Attack"
-                        width={80}
-                        height={80}
+                        className={styles.button}
                     />
                 </div>
 
-                {/* Inventory Items */}
-                <div className={styles.inventoryItems}>
-                    <Inventory />
+                {/* Footer section */}
+                <div className={styles.footer}>
+                    <Footer />
                 </div>
-
-                {/* Point Bar */}
-                <div className={styles.pointBar}>
-                    <PointBar />
-                </div>
-
-                {/* Footer */}
-                <Footer />
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import styles from '@/styles/Inventory.module.css';
 const Inventory = () => {
     return (
         <div className={styles.inventoryContainer}>
-            {['Crystal 1.svg', 'Crystal 2.svg', 'Crystal 3.svg', 'Crystal 4.svg'].map((item, index) => (
+            {['Crystal1.svg', 'Crystal2.svg', 'Crystal3.svg', 'Crystal4.svg'].map((item, index) => (
                 <div className={styles.inventoryItem} key={index}>
                     <Image
                         src={`/assets/Images/${item}`}
