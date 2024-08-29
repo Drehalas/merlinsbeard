@@ -1,4 +1,3 @@
-/* styles/Home.module.css */
 
 .mainScreenContainer {
   display: flex;
@@ -10,23 +9,25 @@
   position: relative; /* Position relative to maintain proper layout context */
 }
 
+/* Main screen grid styling */
 .mainScreen {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-template-rows: repeat(10, auto); /* Adjust rows to fit content */
+  grid-template-rows: repeat(7, auto); /* 7 rows */
   grid-template-areas:
     "header header header"
-    "orb orb orb"
+    ". orb ."
     ". spells ."
     ". status ."
     "crystal1 character crystal2"
     "crystal3 character crystal4"
-    "buttons buttons buttons"
-    "footer footer footer";
+    "leftButton . rightButton"; /* New row for buttons above the footer */
   width: 100%;
-  height: 100%;
+  min-height: calc(100% - 60px); /* Minimum height threshold to leave space for footer */
   gap: 0; /* Remove grid gaps */
   position: relative; /* Relative to container */
+  z-index: 1; /* Ensure grid is on top of the background */
+  padding-bottom: 70px; /* Add padding to prevent content overlap */
 }
 
 /* Background */
@@ -57,24 +58,26 @@
   bottom: 0;
 }
 
-/* Full-width Header */
+/* Sticky Header */
 .header {
   grid-area: header;
-  width: 100%; /* Ensure the header spans full width */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%; /* Override any max-width setting */
-  margin: 0; /* Remove any margin */
-  padding: 0; /* Remove any padding */
-  z-index: 1; /* Ensure it's above the background */
-  position: relative; /* Relative positioning for orb alignment */
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: sticky; /* Make the header sticky */
+  top: 0; /* Stick to the top of the screen */
+  z-index: -1; /* Ensure it's above the grid content and other elements */
+  background-color: rgba(0, 0, 0, 0.8); /* Optional: Add a background to prevent transparency issues */
 }
 
 /* AutoStop Button Styling */
 .autoStopButton {
   position: absolute; /* Position it absolutely */
-  top: 210px; /* Align it vertically with the orb */
+  top: 250px; /* Align it vertically with the orb */
   right: 0; /* Align it to the right edge of the screen */
   z-index: 1; /* Make sure it is above the background */
 }
@@ -82,12 +85,12 @@
 /* Orb as a Background Layer */
 .orbBackground {
   position: absolute;
-  top: 90px; /* Adjust this value to position it correctly under the header */
+  top: 130px; /* Adjust this value to position it correctly under the header */
   left: 50%;
   transform: translate(-50%, 0); /* Correctly centers the orb horizontally */
-  width: 200px; /* Use the updated width */
-  height: 200px; /* Use the updated height */
-  z-index: 0; /* Keep it behind all content */
+  width: 160px; /* Use the updated width */
+  height: 160px; /* Use the updated height */
+  z-index: -1; /* Keep it behind all content */
 }
 
 /* Character display section styling */
@@ -96,10 +99,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Make the character container fill the grid cell width */
+  height: 100%; /* Make the character container fill the grid cell height */
   position: relative;
-  margin-bottom: 10px;
+  margin: 0; /* Remove any margin to ensure it fills the grid cell completely */
+  padding: 0; /* Remove any padding */
   cursor: pointer; /* Make character clickable */
-  z-index: 1;
+  z-index: 0; /* Allow character to be behind other elements if needed */
+}
+
+/* Ensure the character image also fills the container */
+.characterContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure the character image scales proportionally within the container */
 }
 
 /* Status bar section styling */
@@ -123,28 +136,34 @@
   align-items: center;
   width: 100%;
   max-width: 600px;
-  margin: 10px auto;
   z-index: 1;
 }
 
-/* Button section styling */
+/* Button section styling - Left Button */
 .leftButton {
-  grid-area: buttons;
+  grid-area: leftButton; /* Place button in the leftButton grid area */
+  justify-self: start; /* Align button to the left side of its grid area */
+  align-self: center; /* Center button vertically within its grid area */
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 10px;
-  z-index: 1;
+  z-index: 2; /* Ensure buttons are above the grid content */
 }
 
+/* Button section styling - Right Button */
 .rightButton {
-  grid-area: buttons;
+  grid-area: rightButton; /* Place button in the rightButton grid area */
+  justify-self: end; /* Align button to the right side of its grid area */
+  align-self: center; /* Center button vertically within its grid area */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 10px;
-  z-index: 1;
+  z-index: 2; /* Ensure buttons are above the grid content */
 }
+
+
 
 /* Crystals section styling */
 .crystal1 {
