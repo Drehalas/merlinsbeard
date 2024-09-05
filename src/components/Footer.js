@@ -11,7 +11,7 @@ const Footer = ({ menuItems = [
     { id: 2, icon: "/assets/images/icon-inventory.svg", label: "Inventory", href: "/inventory" },
     { id: 3, icon: "/assets/images/icon-map.svg", label: "Map", href: "/map" },
     { id: 4, icon: "/assets/images/icon-task.svg", label: "Task", href: "/task" },
-    { id: 5, icon: "/assets/images/icon-ranking.svg", label: "Ranking", href: "/ranking" },
+    { id: 5, icon: "/assets/images/icon-ranking.svg", label: "ranking", href: "/ranking" },
     { id: 6, icon: "/assets/images/icon-profile.svg", label: "Profile", href: "/profile" },
 ] }) => {
     return (

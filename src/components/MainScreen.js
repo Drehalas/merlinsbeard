@@ -1,4 +1,4 @@
-// src/components/MainScreen.js
+// src/components/mainscreen.js
 
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
