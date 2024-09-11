@@ -1,4 +1,4 @@
-// pages/task.js
+// pages/task_ranking.js
 
 import TaskList from '../components/TaskList';
 
@@ -11,7 +11,7 @@ export default function Task() {
 
     const handleComplete = (taskId) => {
         console.log('Task completed:', taskId);
-        // Here, you would handle the logic to update task status and give rewards.
+        // Here, you would handle the logic to update task_ranking status and give rewards.
     };
 
     return (

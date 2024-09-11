@@ -8,9 +8,9 @@ export default function TaskList({ tasks, onComplete }) {
         <div className={styles.taskListContainer}>
             {tasks.map(task => (
                 <div key={task.id} className={styles.taskItem}>
-                    {/* Using Image component for task icons */}
+                    {/* Using Image component for task_ranking icons */}
                     <Image
-                        src="/images/task-icon.png"  // Example task icon image
+                        src="/images/task-icon.png"  // Example task_ranking icon image
                         alt="Task Icon"
                         width={30}  // Adjust width as needed
                         height={30}  // Adjust height as needed
